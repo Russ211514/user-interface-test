@@ -1,0 +1,94 @@
+[gd_scene load_steps=7 format=3 uid="uid://cp33oyot68uhw"]
+
+[ext_resource type="Script" uid="uid://c12aalm7qohmy" path="res://tutorial.gd" id="1_ehuit"]
+[ext_resource type="Texture2D" uid="uid://bq0nqt8y6t3cy" path="res://faith-spark-background1.jpg" id="1_yb1ct"]
+[ext_resource type="FontFile" uid="uid://dgx0e5fnwpulj" path="res://ARCADECLASSIC.TTF" id="2_ehuit"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5mrt3"]
+texture = ExtResource("1_yb1ct")
+modulate_color = Color(0.5647059, 0.5647059, 0.5647059, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rwowx"]
+bg_color = Color(0, 0.5568628, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hu44a"]
+bg_color = Color(0, 0.5568628, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="Tutorial" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ehuit")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_5mrt3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -281.0
+offset_top = 132.0
+offset_right = 281.0
+offset_bottom = 358.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Start tutorial" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 0
+theme_override_fonts/font = ExtResource("2_ehuit")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxFlat_rwowx")
+text = "START TUTORIAL"
+
+[node name="Back" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ehuit")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxFlat_hu44a")
+text = "BACK"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -323.0
+offset_top = 25.0
+offset_right = 323.0
+offset_bottom = 206.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("2_ehuit")
+theme_override_font_sizes/font_size = 80
+text = "WELCOME TO THE TUTORIAL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/Start tutorial" to="." method="_on_start_tutorial_pressed"]
+[connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_back_pressed"]

@@ -1,0 +1,98 @@
+[gd_scene load_steps=6 format=3 uid="uid://efj6jy6itu6e"]
+
+[ext_resource type="Script" uid="uid://dvyo0bm6620kc" path="res://lobby.gd" id="1_2wvic"]
+[ext_resource type="Texture2D" uid="uid://bq0nqt8y6t3cy" path="res://faith-spark-background1.jpg" id="1_xrgmn"]
+[ext_resource type="FontFile" uid="uid://dgx0e5fnwpulj" path="res://ARCADECLASSIC.TTF" id="2_2wvic"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tftiq"]
+texture = ExtResource("1_xrgmn")
+modulate_color = Color(0.5647059, 0.5647059, 0.5647059, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tftiq"]
+bg_color = Color(0, 0.5568628, 0, 1)
+corner_radius_top_left = 16
+corner_radius_top_right = 16
+corner_radius_bottom_right = 16
+corner_radius_bottom_left = 16
+
+[node name="Lobby" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2wvic")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_tftiq")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -274.0
+offset_top = 23.0
+offset_right = 274.0
+offset_bottom = 188.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 30
+theme_override_fonts/font = ExtResource("2_2wvic")
+theme_override_font_sizes/font_size = 165
+text = "LOBBY"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -431.0
+offset_top = -124.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Create room" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_2wvic")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxFlat_tftiq")
+text = "CREATE ROOM"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 12.0
+offset_top = -124.0
+offset_right = 443.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Back" type="Button" parent="VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_2wvic")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxFlat_tftiq")
+text = "BACK"
+
+[connection signal="pressed" from="VBoxContainer/Create room" to="." method="_on_create_room_pressed"]
+[connection signal="pressed" from="VBoxContainer2/Back" to="." method="_on_back_pressed"]
