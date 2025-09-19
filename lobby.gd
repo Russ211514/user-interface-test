@@ -8,4 +8,4 @@ func _on_back_pressed() -> void:
 
 
 func _on_create_room_pressed() -> void:
-	print("Goes to the created room")
+	get_tree().change_scene_to_file("res://created_lobby.tscn")
